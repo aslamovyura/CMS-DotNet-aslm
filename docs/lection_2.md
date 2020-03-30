@@ -54,7 +54,7 @@
     Console.WriteLine(default(int)); // 0
     Console.WriteLine(default(object) is null); // true
 
-### Оператор nameof
+### Оператор `nameof`
 
     Console.WriteLine(nameof(List<int>)); // List
     Console.WriteLine(nameof(List<int>.Count)); // Count
