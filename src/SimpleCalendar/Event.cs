@@ -13,12 +13,11 @@ namespace SimpleCalendar
 
     public class Event : IComparable
     {
-
-        public DateTime StartDate { get; set; }
-        public int LengthInHours { get; set; }
+        public DateTime StartDate { get; set; } = DateTime.Today;
+        public int LengthInHours { get; set; } = 1;
         public string Description { get; set; } = string.Empty;
-
-        public Priority Priority { get; set; }
+        public Priority Priority { get; set; } = Priority.Low;
+        public int ID { get; set; } = 0;
 
         public static IComparer SortByStartDate
             { get { return (IComparer)new StartDateComparer(); } }
@@ -37,24 +36,40 @@ namespace SimpleCalendar
             LengthInHours = lengthInHours;
             Priority = Priority.Low;
         }
-        public Event(DateTime startDate, int lengthInHours, String description)
+        public Event(DateTime startDate, int lengthInHours, string description)
         {
             StartDate = startDate;
             LengthInHours = lengthInHours;
             Description = description;
             Priority = Priority.Low;
         }
-        public Event(DateTime startDate, int lengthInHours, String description, Priority priority)
+        public Event(DateTime startDate, int lengthInHours, string description, Priority priority)
         {
             StartDate = startDate;
             LengthInHours = lengthInHours;
             Description = description;
             Priority = priority;
         }
+        public Event(DateTime startDate, int lengthInHours, string description, Priority priority, int id)
+        {
+            StartDate = startDate;
+            LengthInHours = lengthInHours;
+            Description = description;
+            Priority = priority;
+            ID = id;
+        }
 
         public void Print()
         {
-            Console.WriteLine($"Event:\n  Start time: {StartDate}\n  length: {LengthInHours} h\n  description: {Description}\n  priority: {Priority}\n");
+            Console.WriteLine($"Event:\n  Start time: {StartDate}\n  length: {LengthInHours} h\n  description: {Description}\n  priority: {Priority}\n  ID: {ID}\n");
+        }
+
+        public void ShiftEvent(TimeSpan shift)
+        {
+            if (shift != null)
+                StartDate = StartDate.Add(shift);
+            else
+                throw new ArgumentNullException();
         }
 
         public int CompareTo(object obj)

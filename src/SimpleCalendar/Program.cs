@@ -14,7 +14,7 @@ namespace SimpleCalendar
             while (true)
             {
                 Console.Write("User input: ");
-                string UserInput = Console.ReadLine();
+                string UserInput = Console.ReadLine().Trim();
                 Calendar myCalendar = Calendar.GetInstance();
 
                 switch (UserInput)
@@ -34,7 +34,17 @@ namespace SimpleCalendar
 
                     case "a":
                     case "add":
-                        myCalendar.AddEvent();
+                        myCalendar.AddEventAction();
+                        break;
+
+                    case "rm":
+                    case "remove":
+                        myCalendar.RemoveEventAction();
+                        break;
+
+                    case "rm -a":
+                    case "remove -a":
+                        myCalendar.RemoveAllEvents();
                         break;
 
                     case "p":
