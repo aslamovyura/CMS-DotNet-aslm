@@ -64,6 +64,11 @@ namespace SimpleCalendar
             Console.WriteLine($"Event:\n  Start time: {StartDate}\n  length: {LengthInHours} h\n  description: {Description}\n  priority: {Priority}\n  ID: {ID}\n");
         }
 
+        /// <summary>
+        /// Shift the start date of the evetn
+        /// </summary>
+        /// <param name="shift">DateTime param</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void ShiftEvent(TimeSpan shift)
         {
             if (shift != null)
