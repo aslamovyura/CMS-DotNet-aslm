@@ -1,18 +1,17 @@
 ﻿using Xunit;
 using SimpleStore;
-
 namespace SimpleStoreTests
 {
     public class ProductTest
     {
         [Fact]
-        public void When_SetNegativePrice_Expect_ZeroPrice()
+        public void Product_WhenSetNegativePrice_Return_ZeroPrice()
         {
             // Asset
             double negPrice = -1;
+            Product prod = new Product("Prod", negPrice, 123);
 
             // Act
-            Product prod = new Product("Prod", negPrice, 123);
             double actualPrice = prod.GetPrice();
 
             // Assert
@@ -21,13 +20,13 @@ namespace SimpleStoreTests
         }
 
         [Fact]
-        public void When_SetZeroPrice_Expect_ZeroPrice()
+        public void Product_WhenSetZeroPrice_Return_ZeroPrice()
         {
             // Asset
             double zeroPrice = 0;
+            Product prod = new Product("Prod", zeroPrice, 123);
 
             // Act
-            Product prod = new Product("Prod", zeroPrice, 123);
             double actualPrice = prod.GetPrice();
 
             // Assert
@@ -36,13 +35,13 @@ namespace SimpleStoreTests
         }
 
         [Fact]
-        public void When_SetNegativeCode_Expect_ZeroCode()
+        public void Product_WhenSetNegativeCode_Return_ZeroCode()
         {
             // Asset
             int negCode = -1;
+            Product prod = new Product("Prod", 123, negCode);
 
             // Act
-            Product prod = new Product("Prod", 123, negCode);
             double actualCode = prod.GetCode();
 
             // Assert
@@ -51,13 +50,13 @@ namespace SimpleStoreTests
         }
 
         [Fact]
-        public void When_SetZeroCode_Expect_ZeroCode()
+        public void Product_WhenSetZeroCode_Return_ZeroCode()
         {
             // Asset
             int zeroCode = 0;
+            Product prod = new Product("Prod", 123, zeroCode);
 
             // Act
-            Product prod = new Product("Prod", 123, zeroCode);
             double actualCode = prod.GetCode();
 
             // Assert
@@ -71,22 +70,20 @@ namespace SimpleStoreTests
         [InlineData(0, 0)]
         [InlineData(-10, 0)]
         [InlineData(-1.5, 0)]
-        public void Product_CheckPrice(double price, double expectedPrice)
+        public void Product_WhenSetPriceIsOk_Return_True(double price, double expectedPrice)
         {
             var prod = new Product("Prod", price, 123);
             Assert.Equal(expectedPrice, prod.GetPrice());
         }
 
-
         [Theory]
         [InlineData(10, 10)]
         [InlineData(0, 0)]
         [InlineData(-1, 0)]
-        public void Product_CheckCode(int code, int expectedCode)
+        public void Product_WhenSetCodeIsOk_Return_True(int code, int expectedCode)
         {
             var prod = new Product("Prod", 12.5, code);
             Assert.Equal(expectedCode, prod.GetCode());
         }
-
     }
 }

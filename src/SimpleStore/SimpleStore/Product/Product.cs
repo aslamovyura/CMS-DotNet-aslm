@@ -3,12 +3,24 @@ namespace SimpleStore
 {
     public class Product
     {
-
+        /// <summary>
+        /// Price.
+        /// </summary>
         private double _price = 0;
+
+        /// <summary>
+        /// Hash code.
+        /// </summary>
         private int _code = 0;
 
+        /// <summary>
+        /// Product name
+        /// </summary>
         public virtual string Name { get; set; } = "Empty";
 
+        /// <summary>
+        /// Product price, $.
+        /// </summary>
         public double Price
         {
             get => _price;
@@ -29,6 +41,9 @@ namespace SimpleStore
             }
         }
 
+        /// <summary>
+        /// Product hash code.
+        /// </summary>
         public int Code
         {
             get => _code;
@@ -49,6 +64,9 @@ namespace SimpleStore
             }
         }
 
+        /// <summary>
+        /// Product manufacturer
+        /// </summary>
         public string Manufacturer { get; set; } = "Unknown";
 
         /// <summary>
@@ -86,16 +104,33 @@ namespace SimpleStore
             Manufacturer = manufacturer;
         }
 
-
+        /// <summary>
+        /// Return the price of the product, $.
+        /// </summary>
+        /// <returns></returns>
         public double GetPrice() => Price;
+
+        /// <summary>
+        /// Return hash code of the product.
+        /// </summary>
+        /// <returns></returns>
         public int GetCode() => Code;
 
+        /// <summary>
+        /// Print product info to console.
+        /// </summary>
         public virtual void Print()
         {
             Console.WriteLine($"Product: {Name},  price: {Price},  manufacturer: {Manufacturer}");
         }
 
-
-
+        /// <summary>
+        /// Convert product parameters to string.
+        /// </summary>
+        /// <returns>String info.</returns>
+        public override string ToString()
+        {
+            return $"Product: {Name},  price: {Price},  manufacturer: {Manufacturer}";
+        }
     }
 }

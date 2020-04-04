@@ -1,13 +1,12 @@
 ﻿using System;
-using SimpleStore.StoreClasses;
+using SimpleStore;
 
-namespace SimpleStore
+namespace SimpleStoreApp
 {
     class Program
     {
         static void Main(string[] args)
         {
-
             Store myStore = new Store();
 
             // Add aggs to store
@@ -37,8 +36,6 @@ namespace SimpleStore
 
             // Show all product in the store
             myStore.Print();
-
-
         }
     }
 }

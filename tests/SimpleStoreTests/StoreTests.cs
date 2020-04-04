@@ -1,28 +1,23 @@
 ﻿using Xunit;
-using SimpleStore.StoreClasses;
-
+using SimpleStore;
 namespace SimpleStoreTests
 {
     public class StoreTests
     {
         [Fact]
-        public void When_NoProcuctInStore_Then_isEmptyAsTrue()
+        public void Store_WhenNoProcuctInStore_Then_isEmptyAsTrue()
         {
             // Asset
             Store myStore = new Store();
-
-            // Act
 
             // Assert
             Assert.True(myStore.IsEmpty());
         }
 
         [Fact]
-        public void When_NoProcuctInStore_Then_ZeroTotalPrice()
+        public void Store_WhenNoProcuctInStore_Then_ZeroTotalPrice()
         {
             // Asset
-
-            // Act
             Store myStore = new Store();
 
             // Assert
@@ -47,9 +42,7 @@ namespace SimpleStoreTests
             {
                 throwException = true;
                 Assert.True(throwException);
-
-            }
-                
+            }  
         }
     }
 }
