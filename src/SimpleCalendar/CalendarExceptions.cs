@@ -18,7 +18,7 @@ namespace SimpleCalendar
             ErrorTimeStamp = time;
         }
 
-        public override string Message => $"Calendar usage error : {this.messageDetails}";
+        public override string Message => $"Calendar usage error : {messageDetails}";
     }
 
     public class NegativeEventLengthException : CalendarException
