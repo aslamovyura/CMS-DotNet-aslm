@@ -1,5 +1,6 @@
 ﻿using System;
 using SimpleZoo.Animals;
+
 namespace SimpleZoo.Intefaces
 {
     public interface IHuntable<T> : IMovable
@@ -28,6 +29,6 @@ namespace SimpleZoo.Intefaces
         /// </summary>
         /// <typeparam name="T">Victim class.</typeparam>
         /// <param name="victim">Victim.</param>
-        public void Hit(T victim);
+        public void TryKill(T victim);
     }
 }

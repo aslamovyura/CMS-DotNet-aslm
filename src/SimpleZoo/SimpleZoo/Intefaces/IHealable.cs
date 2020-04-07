@@ -4,34 +4,29 @@ namespace SimpleZoo.Intefaces
     public interface IHealable
     {
         /// <summary>
-        /// Oject name.
-        /// </summary>
-        string Name { get; set; }
-
-        /// <summary>
         /// Object age, years.
         /// </summary>
-        public int Age { get; }
+        int Age { get; }
 
         /// <summary>
         /// Max object age, years.
         /// </summary>
-        public int MAX_AGE { get; }
+        int MAX_AGE { get; }
 
         /// <summary>
         /// Object health.
         /// </summary>
-        public int Health { get; set; }
+        int Health { get; set; }
 
         /// <summary>
         /// Threshold level for death state.
         /// </summary>
-        public const int DEATH_THRESH = 0;
+        const int DEATH_THRESH = 0;
 
         /// <summary>
         /// Threshold level for healthy state.
         /// </summary>
-        public const int HEALTHY_THRESH = 75;
+        const int HEALTHY_THRESH = 75;
 
         /// <summary>
         /// Try to heal object, if health level is not too low.
@@ -40,7 +35,7 @@ namespace SimpleZoo.Intefaces
         {
             if (Health < DEATH_THRESH)
             {
-                Console.WriteLine($"Sorry! Impossible to heal {Name}...");
+                Console.WriteLine($"Sorry! Impossible to heal Object...");
                 if (!IsHealingSuccessful())
                 {
                     Console.WriteLine("Ups...");
@@ -51,17 +46,17 @@ namespace SimpleZoo.Intefaces
 
             if (Health > HEALTHY_THRESH)
             {
-                Console.WriteLine($"No need to heal {Name}, it's pretty healthy!");
+                Console.WriteLine($"No need to heal Object, it's pretty healthy!");
                 return;
             }
 
             if (IsHealingSuccessful())
             {
                 Health = 100;
-                Console.WriteLine($"Excellent! {Name} completely healed!");
+                Console.WriteLine($"Excellent! Object completely healed!");
             }
             else
-                Console.WriteLine($"Ups... {Name} could not be healed... Let's try later!");
+                Console.WriteLine($"Ups... Object could not be healed... Let's try later!");
         }
 
         /// <summary>
@@ -82,7 +77,7 @@ namespace SimpleZoo.Intefaces
         public void Kill()
         {
             Health = 0;
-            Console.WriteLine($"{Name} is dead...");
+            Console.WriteLine($"Object is dead...");
         }
 
         /// <summary>

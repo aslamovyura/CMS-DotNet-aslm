@@ -1,13 +1,23 @@
 ﻿using System;
-using SimpleZoo.Intefaces;
+
 namespace SimpleZoo.Animals
 {
     public class Lion : PredatorAnimal<HerbivoreAnimal>
     {
         /// <summary>
+        /// Animal type, e.g. lion, elephant, etc.
+        /// </summary>
+        public override string Type => "Lion";
+
+        /// <summary>
         /// Maximum lion speed.
         /// </summary>
-        public override int MAX_SPEED => 45;
+        public override int MAX_SPEED => 65;
+
+        /// <summary>
+        /// Maximum lion speed.
+        /// </summary>
+        public override int MAX_AGE => 15;
 
         /// <summary>
         /// Lion attack power.
@@ -32,6 +42,6 @@ namespace SimpleZoo.Animals
         /// <param name="health">Health, %.</param>
         /// <param name="id">Identifier.</param>
         public Lion (string name, int age, int health, Guid id)
-            : base(name, age, health, id) { }
+            : base(name, age, health, id, attackPower:120) { }
     }
 }

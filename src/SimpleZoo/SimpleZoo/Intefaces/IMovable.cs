@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace SimpleZoo.Intefaces
 {
     public interface IMovable
@@ -6,7 +7,7 @@ namespace SimpleZoo.Intefaces
         /// <summary>
         /// Current object speed.
         /// </summary>
-        public int Speed { get; set; }
+        public int CurrentSpeed { get; set; }
 
         /// <summary>
         /// Max speed of the object in [km/h].
@@ -17,7 +18,7 @@ namespace SimpleZoo.Intefaces
         /// Check if object is moving.
         /// </summary>
         /// <returns>True if object is moving.</returns>
-        public bool IsMoving() => Speed > 0 ? true : false;
+        public bool IsMoving() => CurrentSpeed > 0 ? true : false;
 
         /// <summary>
         /// Move object with const speed.
@@ -28,7 +29,7 @@ namespace SimpleZoo.Intefaces
             if (speed < 0)
                 throw new ArgumentException();
 
-            Speed = speed > MAX_SPEED ? speed : MAX_SPEED;
+            CurrentSpeed = speed > MAX_SPEED ? speed : MAX_SPEED;
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace SimpleZoo.Intefaces
             if (delta < 0)
                 throw new ArgumentException();
 
-            Speed += delta;
+            CurrentSpeed += delta;
         }
 
         /// <summary>
@@ -52,9 +53,9 @@ namespace SimpleZoo.Intefaces
             if (delta < 0)
                 throw new ArgumentException();
 
-            Speed += delta;
-            if (Speed > MAX_SPEED)
-                Speed = MAX_SPEED;
+            CurrentSpeed += delta;
+            if (CurrentSpeed > MAX_SPEED)
+                CurrentSpeed = MAX_SPEED;
         }
 
         /// <summary>
@@ -66,8 +67,8 @@ namespace SimpleZoo.Intefaces
             if (delta < 0)
                 throw new ArgumentException();
 
-            if (delta < Speed)
-                Speed -= delta;
+            if (delta < CurrentSpeed)
+                CurrentSpeed -= delta;
             else
                 Stop();
         }
@@ -75,9 +76,6 @@ namespace SimpleZoo.Intefaces
         /// <summary>
         /// Stop object immediately.
         /// </summary>
-        public void Stop()
-        {
-            Speed = 0;
-        }
+        public void Stop() => CurrentSpeed = 0;
     }
 }

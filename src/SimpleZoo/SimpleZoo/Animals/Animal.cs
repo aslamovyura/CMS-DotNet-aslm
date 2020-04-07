@@ -1,19 +1,10 @@
 ﻿using System;
 using SimpleZoo.Intefaces;
+
 namespace SimpleZoo.Animals
 {
     public abstract class Animal
     {
-        /// <summary>
-        /// Animal age, years.
-        /// </summary>
-        private int _age = 0;
-
-        /// <summary>
-        /// Amimal health, %.
-        /// </summary>
-        private int _health = 0;
-
         /// <summary>
         /// Animal name.
         /// </summary>
@@ -22,12 +13,12 @@ namespace SimpleZoo.Animals
         /// <summary>
         /// Animal age in years.
         /// </summary>
-        public int Age { get; }
+        public virtual int Age { get; protected set; }
 
         /// <summary>
         /// Max animal age.
         /// </summary>
-        public virtual int MAX_AGE { get; }
+        public virtual int MAX_AGE { get; protected set; } = 25;
 
         /// <summary>
         /// Animal health in percents from 0 to 100%.
@@ -56,6 +47,8 @@ namespace SimpleZoo.Animals
         /// <param name="age">Age in years.</param>
         /// <param name="health">Health in percents.</param>
         /// <param name="id">Identifier.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public Animal(string name, int age, int health, Guid id)
         {
             Name = name;

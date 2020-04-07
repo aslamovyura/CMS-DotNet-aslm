@@ -2,41 +2,41 @@
 
 namespace SimpleZoo.Animals
 {
-    public class Antelope : HerbivoreAnimal
+    public class Elephant : HerbivoreAnimal
     {
         /// <summary>
         /// Animal type, e.g. lion, elephant, etc.
         /// </summary>
-        public override string Type => "Antelope";
+        public override string Type => "Alephant";
 
         /// <summary>
-        /// Maximum antelope speed.
+        /// Maximum elephant speed.
         /// </summary>
-        public override int MAX_SPEED => 48;
+        public override int MAX_SPEED => 15;
 
         /// <summary>
-        /// Maximum antelope speed.
+        /// Maximum elephant speed.
         /// </summary>
-        public override int MAX_AGE => 9;
+        public override int MAX_AGE => 25;
 
         /// <summary>
-        /// Antelope attack power.
+        /// Antelope health.
         /// </summary>
-        public override int Health { get; set; } = 60;
+        public override int Health { get; set; } = 100;
 
         /// <summary>
-        /// Constructor of Antelope object.
+        /// Constructor of Elephant object.
         /// </summary>
-        public Antelope() { }
+        public Elephant() { }
 
         /// <summary>
-        /// Constructor of Antelope object.
+        /// Constructor of Elephant object.
         /// </summary>
         /// <param name="name">Name.</param>
         /// <param name="age">Age, years.</param>
         /// <param name="health">Health, %.</param>
         /// <param name="id">Identifier.</param>
-        public Antelope(string name, int age, int health, Guid id)
+        public Elephant(string name, int age, int health, Guid id)
             : base(name, age, health, id) { }
     }
 }

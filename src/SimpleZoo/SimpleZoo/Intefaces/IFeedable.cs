@@ -1,13 +1,9 @@
 ﻿using System;
+
 namespace SimpleZoo.Intefaces
 {
     public interface IFeedable
     {
-        /// <summary>
-        /// Oject name.
-        /// </summary>
-        string Name { get; set; }
-
         /// <summary>
         /// Threshold level of hunger.
         /// </summary>
@@ -28,20 +24,20 @@ namespace SimpleZoo.Intefaces
         /// </summary>
         public void Feed(MealType meal)
         {
-            if (!isHungry())
+            if (!IsHungry())
             {
-                Console.WriteLine($"No need to feed. {Name} is still full!");
+                Console.WriteLine($"No need to feed. Object is still full!");
                 return;
             }
 
             if (meal == MealType)
             {
                 Hunger = 0;
-                Console.WriteLine($"Excellent! {Name} is fully fed up!");
+                Console.WriteLine($"Excellent! Object is fully fed up!");
             }
             else
             {
-                Console.WriteLine($"Impossible to feed {Name} with {meal}!");
+                Console.WriteLine($"Impossible to feed Object with {meal}!");
             }
         }
 
@@ -49,6 +45,6 @@ namespace SimpleZoo.Intefaces
         /// Check if object is hungry.
         /// </summary>
         /// <returns>Return true if object is hungry</returns>
-        public bool isHungry() => Hunger > HUNGRY_THRESH ? true : false;
+        public bool IsHungry() => Hunger > HUNGRY_THRESH ? true : false;
     }
 }
