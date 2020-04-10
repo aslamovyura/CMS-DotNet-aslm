@@ -1,5 +1,4 @@
-﻿using System;
-namespace SimpleCashMachine.Interfaces
+﻿namespace SimpleCashMachine.Interfaces
 {
     public interface INotify
     {

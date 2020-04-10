@@ -49,6 +49,13 @@ namespace SimpleCashMachine
         /// Create new user account in the bank.
         /// </summary>
         /// <param name="id">Positive Identifier.</param>
+        /// <param name="sum">Initial sum, $.</param>
+        public void CreateNewAccount(int id, decimal sum) => CreateNewAccount(id, sum, NotificationType.None, string.Empty);
+
+        /// <summary>
+        /// Create new user account in the bank.
+        /// </summary>
+        /// <param name="id">Positive Identifier.</param>
         /// <param name="type">Type of notifications.</param>
         public void CreateNewAccount(int id, NotificationType type, string adress) => CreateNewAccount(id, 0, type, adress);
 
@@ -131,7 +138,7 @@ namespace SimpleCashMachine
         /// <summary>
         /// Convert client info to string.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Client Info.</returns>
         public override string ToString()
         {
             string info = $"Clint : {FirstName} {LastName} ({Age} y.), ID: {ID}\n";

@@ -17,6 +17,7 @@ namespace SimpleCashMachine.Bank
         /// Cash machine constructor.
         /// </summary>
         /// <param name="server">Bank server.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public CashMachine(BankServer server)
         {
             if (server == null)
@@ -45,6 +46,7 @@ namespace SimpleCashMachine.Bank
         /// Dialog with user while inserting credit card.
         /// </summary>
         /// <param name="cardID">Account/credit card Identifier.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void InsertCardDialog(int cardID)
         {
             bool success = _server.RequestConnection(this, cardID);
@@ -67,8 +69,7 @@ namespace SimpleCashMachine.Bank
                 Console.WriteLine("Your credit card is invalid!");
                 InvalidCard?.Invoke(cardID);
                 InsertCardDialog();
-            }
-                
+            }   
             ChooseOperationDialog();
         }
 
@@ -118,7 +119,7 @@ namespace SimpleCashMachine.Bank
                     break;
 
                 default:
-                    Console.WriteLine("Incorrect input! Try again!");
+                    Console.WriteLine("Incorrect input! Try again!\n");
                     ChooseOperationDialog();
                     break;
             }
@@ -156,7 +157,15 @@ namespace SimpleCashMachine.Bank
             Console.WriteLine("Enter sum [$] to take from your account.\n");
 
             decimal sum = ParseSumDialog();
-            CurrentAccount.TakeMoney(sum);
+            try
+            {
+                CurrentAccount.TakeMoney(sum);
+            }
+            catch
+            {
+                Console.WriteLine("Incorrect sum! Try again or check your account!\n");
+                ChooseOperationDialog();
+            }
             MoneyIsTaken?.Invoke();
         }
 
@@ -202,12 +211,15 @@ namespace SimpleCashMachine.Bank
                 }
                 catch
                 {
-                    Console.WriteLine("Incorrect input! Try again.\n");
+                    Console.WriteLine("\nIncorrect input! Try again.\n");
                 }
             }
             return cardId;
         }
 
+        /// <summary>
+        /// Dialog with user before the removing credit card from cash machine.
+        /// </summary>
         public void QuitDialog()
         {
             Console.WriteLine("Would you like to continue? (y/n)");
@@ -232,7 +244,15 @@ namespace SimpleCashMachine.Bank
 
         // ************************* Events ************************* //
 
+        /// <summary>
+        /// Handler of the connection between bank and cash machine.
+        /// </summary>
+        /// <param name="cardId">Credit card identifier.</param>
         public delegate void ConnectionHandler(int cardId);
+
+        /// <summary>
+        /// Event after invalid card was detected.
+        /// </summary>
         public event ConnectionHandler InvalidCard;
 
         public Action<int> CardIsInserted; // Action after inseting card.

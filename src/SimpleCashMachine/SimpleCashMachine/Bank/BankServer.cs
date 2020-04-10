@@ -18,8 +18,8 @@ namespace SimpleCashMachine
         public void LoadDefaultClientBase()
         {
             Client client = new Client(firstName: "Jhon", lastName: "Smith", age: 22, id: 10293);
-            client.CreateNewAccount(id: 100, NotificationType.Sms, adress: "+375295454543");
-            client.CreateNewAccount(id: 101, sum: 2000, NotificationType.Email, adress: "jhon@gmail.com");
+            client.CreateNewAccount(id: 100, sum: 200);
+            client.CreateNewAccount(id: 101, sum: 2500, NotificationType.Email, adress: "jhon@gmail.com");
             AddNewClient(client);
 
             Client client1 = new Client(firstName: "Marry", lastName: "Simpson", age: 45, id: 12045);
@@ -39,6 +39,7 @@ namespace SimpleCashMachine
         /// Add new client to the bank database.
         /// </summary>
         /// <param name="client"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AddNewClient(Client client)
         {
             if (client == null)
@@ -51,6 +52,8 @@ namespace SimpleCashMachine
         /// Add new client to the bank database.
         /// </summary>
         /// <param name="client"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void RemoveClient(Client client)
         {
             if (client == null)
@@ -61,6 +64,31 @@ namespace SimpleCashMachine
             else
                 throw new ArgumentOutOfRangeException("This client does not exist!");
         }
+
+        /// <summary>
+        /// Get number of bank clients.
+        /// </summary>
+        /// <returns>Clients number.</returns>
+        public int GetClientsNumber() => _clientBase.Count;
+
+        /// <summary>
+        /// Return client in database by key.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Client GetClient(int key) => _clientBase.GetValueOrDefault(key);
+
+        /// <summary>
+        /// Check if bank is empty.
+        /// </summary>
+        /// <returns>True, if bank is empty.</returns>
+        public bool IsEmpty() => _clientBase.Count == 0 ? true : false;
+
+        /// <summary>
+        /// Get list cliens IDs.
+        /// </summary>
+        /// <returns>List of IDs.</returns>
+        public List<int> GetClientsIdList() => IsEmpty()? new List<int>() : _clientBase.Keys.ToList();
 
         /// <summary>
         /// Process connection request form cash machine.
@@ -102,6 +130,7 @@ namespace SimpleCashMachine
         /// Get account from client database.
         /// </summary>
         /// <param name="accountID">Account ID.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public Account GetAccount(int accountID)
         {
             if (accountID < 0)
@@ -115,6 +144,7 @@ namespace SimpleCashMachine
         /// <param name="clientID">Client Identifier.</param>
         /// <param name="accountID">Account Identifier.</param>
         /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public Account GetAccount(int clientID, int accountID)
         {

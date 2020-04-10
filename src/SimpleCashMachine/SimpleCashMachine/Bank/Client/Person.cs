@@ -38,6 +38,8 @@ namespace SimpleCashMachine
         /// <param name="lastName">Last name.</param>
         /// <param name="age">Age [years].</param>
         /// <param name="id">Identifier.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public Person(string firstName, string lastName, int age, int id)
         {
             FirstName = firstName ?? throw new ArgumentNullException();

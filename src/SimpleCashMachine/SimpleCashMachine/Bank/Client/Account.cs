@@ -90,7 +90,7 @@ namespace SimpleCashMachine
         /// <summary>
         /// Register events of the bank account.
         /// </summary>
-        public void RegisterEvents(NotificationType type, string adress)
+        private void RegisterEvents(NotificationType type, string adress)
         {
             // Configure user notifications.
             RegisterNotifications(type, adress);
@@ -100,22 +100,22 @@ namespace SimpleCashMachine
             TransactionAction = OnTransaction;
 
             // Configure to send notifications on account events.
-            Transaction += (transaction, sum) => this.Notification.Send(NewTransactionMessage(transaction, sum));
-            Created += (msg) => this.Notification.Send(msg);
-            Deleted += (msg) => this.Notification.Send(msg);
+            Transaction += (transaction, sum) => this.Notification?.Send(NewTransactionMessage(transaction, sum));
+            Created += (msg) => this.Notification?.Send(msg);
+            Deleted += (msg) => this.Notification?.Send(msg);
         }
 
         /// <summary>
         /// Register events of the bank account (disable events).
         /// </summary>
-        public void RegisterEvents() => RegisterEvents(NotificationType.None, string.Empty);
+        private void RegisterEvents() => RegisterEvents(NotificationType.None, string.Empty);
 
         /// <summary>
         /// Register user notifications.
         /// </summary>
         /// <param name="type">Notifications type (sms, email, none).</param>
         /// <param name="adress">Notification adress (email, phone number).</param>
-        public void RegisterNotifications(NotificationType type, string adress)
+        private void RegisterNotifications(NotificationType type, string adress)
         {
             switch (type)
             {
@@ -139,8 +139,12 @@ namespace SimpleCashMachine
         /// Put some money to the account.
         /// </summary>
         /// <param name="sum">Sum of money [$].</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void PutMoney(decimal sum)
         {
+            if (sum < 0)
+                throw new ArgumentOutOfRangeException();
+
             _balance += (sum >= 0) ? sum : throw new ArgumentOutOfRangeException();
             //Transaction?.Invoke("put", sum);      // push as event
             TransactionAction?.Invoke("take", sum); // push as action
@@ -150,8 +154,12 @@ namespace SimpleCashMachine
         /// Take some amout on money from the account.
         /// </summary>
         /// <param name="sum">Sum of money [$].</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void TakeMoney(decimal sum)
         {
+            if (sum < 0)
+                throw new ArgumentOutOfRangeException();
+
             _balance -= (sum <= _balance) ? sum : throw new ArgumentOutOfRangeException();
             //Transaction?.Invoke("take", sum);     // push as event
             TransactionAction?.Invoke("take", sum); // push as action
@@ -167,6 +175,12 @@ namespace SimpleCashMachine
         /// Show current account balance.
         /// </summary>
         public void ViewAccountBanance() => Console.WriteLine($"Current balance: {_balance}$\n");
+
+        /// <summary>
+        /// Get the actual sum of money on the account.
+        /// </summary>
+        /// <returns>Sum of money, $.</returns>
+        public decimal GetAccountBalance() => _balance;
 
         /// <summary>
         /// Get string with info about current balance;

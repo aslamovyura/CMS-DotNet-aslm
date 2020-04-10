@@ -1,5 +1,4 @@
-﻿using System;
-using SimpleCashMachine;
+﻿using SimpleCashMachine;
 using SimpleCashMachine.Bank;
 
 namespace SimpleCachMachineApp
