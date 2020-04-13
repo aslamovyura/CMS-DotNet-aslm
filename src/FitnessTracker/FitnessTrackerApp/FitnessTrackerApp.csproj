@@ -6,6 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FintessTracker\FintessTracker.csproj" />
+    <ProjectReference Include="..\FintessTracker\FitnessTracker.csproj" />
   </ItemGroup>
 </Project>

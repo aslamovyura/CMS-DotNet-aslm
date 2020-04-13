@@ -1,5 +1,5 @@
 ﻿using System;
-using FintessTracker.Tracker;
+using FitnessTracker.Tracker;
 
 namespace FitnessTrackerApp
 {

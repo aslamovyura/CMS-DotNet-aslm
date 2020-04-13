@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Threading;
-using FitnessTracker.Tracker;
 using FitnessTracker.Sensors;
 
-namespace FintessTracker.Tracker
+namespace FitnessTracker.Tracker
 {
     /// <summary>
     /// Fitness/health tracker based on measurement from several sensors.

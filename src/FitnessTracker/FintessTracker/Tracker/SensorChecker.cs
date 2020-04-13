@@ -10,7 +10,7 @@ namespace FitnessTracker.Tracker
     public class SensorChecker
     {
         // Sensors.
-        private List<Sensor> Sensors = new List<Sensor>();
+        public List<Sensor> Sensors { get; } = new List<Sensor>();
 
         /// <summary>
         /// Default Constructor.
@@ -21,6 +21,11 @@ namespace FitnessTracker.Tracker
         /// Default Constructor.
         /// </summary>
         public SensorChecker(List<Sensor> sensors) => Sensors = sensors;
+
+        public int GetSensorsNumber()
+        {
+            return Sensors.Count;
+        }
 
         /// <summary>
         /// Add new sensor for tracking.
