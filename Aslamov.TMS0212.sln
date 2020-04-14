@@ -1,29 +1,38 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCashMachineApp", "src\SimpleCashMachine\SimpleCashMachineApp\SimpleCashMachineApp.csproj", "{C36947E2-6CF2-4E19-B266-4709A044E3ED}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCashMachineApp", "src\SimpleCashMachine\SimpleCashMachineApp\SimpleCashMachineApp.csproj", "{C36947E2-6CF2-4E19-B266-4709A044E3ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCashMachine", "src\SimpleCashMachine\SimpleCashMachine\SimpleCashMachine.csproj", "{E2AF31C2-B79D-4D26-9B53-5AD861AAFE88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCashMachine", "src\SimpleCashMachine\SimpleCashMachine\SimpleCashMachine.csproj", "{E2AF31C2-B79D-4D26-9B53-5AD861AAFE88}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "SimpleZoo", "src\SimpleZoo\SimpleZoo\SimpleZoo.csproj", "{B41873E2-902B-4BA3-A020-95550A486F58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleZoo", "src\SimpleZoo\SimpleZoo\SimpleZoo.csproj", "{B41873E2-902B-4BA3-A020-95550A486F58}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "SimpleZooApp", "src\SimpleZoo\SimpleZooApp\SimpleZooApp.csproj", "{888E722B-CF7B-4CE9-8148-79D4EC42E9B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleZooApp", "src\SimpleZoo\SimpleZooApp\SimpleZooApp.csproj", "{888E722B-CF7B-4CE9-8148-79D4EC42E9B9}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "SimpleZooTests", "tests\SimpleZooTests\SimpleZooTests.csproj", "{4F9A30A7-E4E0-4A90-B1F0-128756DAB2B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleZooTests", "tests\SimpleZooTests\SimpleZooTests.csproj", "{4F9A30A7-E4E0-4A90-B1F0-128756DAB2B3}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "SimpleStore", "src\SimpleStore\SimpleStore\SimpleStore.csproj", "{0394C6A0-A0DA-4F0A-9B66-9CFB7DBAE02E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleStore", "src\SimpleStore\SimpleStore\SimpleStore.csproj", "{0394C6A0-A0DA-4F0A-9B66-9CFB7DBAE02E}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "SimpleStoreApp", "src\SimpleStore\SimpleStoreApp\SimpleStoreApp.csproj", "{3FF38210-D2CF-4DD8-84C8-05E48E4350D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleStoreApp", "src\SimpleStore\SimpleStoreApp\SimpleStoreApp.csproj", "{3FF38210-D2CF-4DD8-84C8-05E48E4350D6}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "SimpleStoreTests", "tests\SimpleStoreTests\SimpleStoreTests.csproj", "{B4E1AF31-E7BA-4278-A0B8-12ECB2CF8EFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleStoreTests", "tests\SimpleStoreTests\SimpleStoreTests.csproj", "{B4E1AF31-E7BA-4278-A0B8-12ECB2CF8EFD}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "HelloWorld", "src\HelloWorld\HelloWorld\HelloWorld.csproj", "{3CBCFE97-73B6-4C85-B635-40687F05523B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "src\HelloWorld\HelloWorld\HelloWorld.csproj", "{D3052818-BBC9-4001-97EF-8324070FC8B8}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "SimpleCalc", "src\SimpleCalc\SimpleCalc.csproj", "{6813D826-9F2B-4B00-82C1-D1619394C0A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCalc", "src\SimpleCalc\SimpleCalc.csproj", "{6813D826-9F2B-4B00-82C1-D1619394C0A2}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "SimpleCalendar", "src\SimpleCalendar\SimpleCalendar.csproj", "{F894B179-7E70-41DD-BE2D-C479C5D30B60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCalendar", "src\SimpleCalendar\SimpleCalendar.csproj", "{F894B179-7E70-41DD-BE2D-C479C5D30B60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCashMachineTests", "tests\SimpleCashMachineTests\SimpleCashMachineTests.csproj", "{6EAA2A29-3DDE-4DC9-BF3F-E9C865E68838}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCashMachineTests", "tests\SimpleCashMachineTests\SimpleCashMachineTests.csproj", "{6EAA2A29-3DDE-4DC9-BF3F-E9C865E68838}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{D5B6A19F-F992-43DD-93D1-FD9BA5390B71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CashMachine", "CashMachine", "{7387AC79-43BE-4B9D-A9BA-13C44444D2E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Store", "Store", "{5C479811-64AF-4BF7-BEAD-70CEFE22CB10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Zoo", "Zoo", "{2A0600CD-049F-4F70-AFEE-098FC0E60E06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +72,10 @@ Global
 		{B4E1AF31-E7BA-4278-A0B8-12ECB2CF8EFD}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{B4E1AF31-E7BA-4278-A0B8-12ECB2CF8EFD}.Release|anycpu.ActiveCfg = Release|Any CPU
 		{B4E1AF31-E7BA-4278-A0B8-12ECB2CF8EFD}.Release|anycpu.Build.0 = Release|Any CPU
-		{3CBCFE97-73B6-4C85-B635-40687F05523B}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{3CBCFE97-73B6-4C85-B635-40687F05523B}.Debug|anycpu.Build.0 = Debug|anycpu
-		{3CBCFE97-73B6-4C85-B635-40687F05523B}.Release|anycpu.ActiveCfg = Release|anycpu
-		{3CBCFE97-73B6-4C85-B635-40687F05523B}.Release|anycpu.Build.0 = Release|anycpu
+		{D3052818-BBC9-4001-97EF-8324070FC8B8}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{D3052818-BBC9-4001-97EF-8324070FC8B8}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{D3052818-BBC9-4001-97EF-8324070FC8B8}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{D3052818-BBC9-4001-97EF-8324070FC8B8}.Release|anycpu.Build.0 = Release|Any CPU
 		{6813D826-9F2B-4B00-82C1-D1619394C0A2}.Debug|anycpu.ActiveCfg = Debug|Any CPU
 		{6813D826-9F2B-4B00-82C1-D1619394C0A2}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{6813D826-9F2B-4B00-82C1-D1619394C0A2}.Release|anycpu.ActiveCfg = Release|Any CPU
@@ -79,5 +88,25 @@ Global
 		{6EAA2A29-3DDE-4DC9-BF3F-E9C865E68838}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{6EAA2A29-3DDE-4DC9-BF3F-E9C865E68838}.Release|anycpu.ActiveCfg = Release|Any CPU
 		{6EAA2A29-3DDE-4DC9-BF3F-E9C865E68838}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C36947E2-6CF2-4E19-B266-4709A044E3ED} = {7387AC79-43BE-4B9D-A9BA-13C44444D2E1}
+		{E2AF31C2-B79D-4D26-9B53-5AD861AAFE88} = {7387AC79-43BE-4B9D-A9BA-13C44444D2E1}
+		{B41873E2-902B-4BA3-A020-95550A486F58} = {2A0600CD-049F-4F70-AFEE-098FC0E60E06}
+		{888E722B-CF7B-4CE9-8148-79D4EC42E9B9} = {2A0600CD-049F-4F70-AFEE-098FC0E60E06}
+		{4F9A30A7-E4E0-4A90-B1F0-128756DAB2B3} = {2A0600CD-049F-4F70-AFEE-098FC0E60E06}
+		{0394C6A0-A0DA-4F0A-9B66-9CFB7DBAE02E} = {5C479811-64AF-4BF7-BEAD-70CEFE22CB10}
+		{3FF38210-D2CF-4DD8-84C8-05E48E4350D6} = {5C479811-64AF-4BF7-BEAD-70CEFE22CB10}
+		{B4E1AF31-E7BA-4278-A0B8-12ECB2CF8EFD} = {5C479811-64AF-4BF7-BEAD-70CEFE22CB10}
+		{D3052818-BBC9-4001-97EF-8324070FC8B8} = {D5B6A19F-F992-43DD-93D1-FD9BA5390B71}
+		{6813D826-9F2B-4B00-82C1-D1619394C0A2} = {D5B6A19F-F992-43DD-93D1-FD9BA5390B71}
+		{F894B179-7E70-41DD-BE2D-C479C5D30B60} = {D5B6A19F-F992-43DD-93D1-FD9BA5390B71}
+		{6EAA2A29-3DDE-4DC9-BF3F-E9C865E68838} = {7387AC79-43BE-4B9D-A9BA-13C44444D2E1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E7FA9A2-18FC-4E6B-AFEA-26AFAFF2739C}
 	EndGlobalSection
 EndGlobal
