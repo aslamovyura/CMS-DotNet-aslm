@@ -6,8 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FintessTracker\FitnessTracker.csproj">
-      <ReferenceSourceTarget></ReferenceSourceTarget>
-    </ProjectReference>
+    <ProjectReference Include="..\StoreCashBoxes\StoreCashBoxes.csproj" />
   </ItemGroup>
 </Project>

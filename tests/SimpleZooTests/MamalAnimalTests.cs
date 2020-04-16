@@ -16,7 +16,7 @@ namespace SimpleZooTest
         [InlineData(-1, true)]
         public void MamalAnimal_WhenInitWithNonpositiveAge_Return_Exception(int animalAge, bool isExceptionExpected)
         {
-            // Asset
+            // Arrange
             bool isExceptionActual = false;
 
             // Act
@@ -33,7 +33,7 @@ namespace SimpleZooTest
 		[Fact]
 		public void MamalAnimal_WhenInitWithAgeGreaterThenMaxAge_Return_Exception()
 		{
-            // Asset
+            // Arrange
             
             // --- Defaul MAX_AGE = 25;
             int age = 30;
@@ -53,7 +53,7 @@ namespace SimpleZooTest
 		[Fact]
 		public void MamalAnimal_WhenInitWithNullName_Return_Exeption()
 		{
-            // Asset
+            // Arrange
 
             // --- Defaul MAX_AGE = 25;
             string name = null;
@@ -79,7 +79,7 @@ namespace SimpleZooTest
         [InlineData(-15, true)]
         public void MamalAnimal_WhenInitWithOutOfRangeHealth_Return_Exeption(int health, bool isExceptionExpected)
         {
-            // Asset
+            // Arrange
             bool isExceptionActual = false;
 
             // Act
@@ -102,7 +102,7 @@ namespace SimpleZooTest
         [InlineData(-15, true)]
         public void MamalAnimal_WhenInitWithOutOfRangeHunger_Return_Exeption(int hunger, bool isExceptionExpected)
         {
-            // Asset
+            // Arrange
             bool isExceptionActual = false;
 
             // Act

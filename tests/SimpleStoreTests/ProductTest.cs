@@ -7,7 +7,7 @@ namespace SimpleStoreTests
         [Fact]
         public void Product_WhenSetNegativePrice_Return_ZeroPrice()
         {
-            // Asset
+            // Arrange
             double negPrice = -1;
             Product prod = new Product("Prod", negPrice, 123);
 
@@ -22,7 +22,7 @@ namespace SimpleStoreTests
         [Fact]
         public void Product_WhenSetZeroPrice_Return_ZeroPrice()
         {
-            // Asset
+            // Arrange
             double zeroPrice = 0;
             Product prod = new Product("Prod", zeroPrice, 123);
 
@@ -37,7 +37,7 @@ namespace SimpleStoreTests
         [Fact]
         public void Product_WhenSetNegativeCode_Return_ZeroCode()
         {
-            // Asset
+            // Arrange
             int negCode = -1;
             Product prod = new Product("Prod", 123, negCode);
 
@@ -52,7 +52,7 @@ namespace SimpleStoreTests
         [Fact]
         public void Product_WhenSetZeroCode_Return_ZeroCode()
         {
-            // Asset
+            // Arrange
             int zeroCode = 0;
             Product prod = new Product("Prod", 123, zeroCode);
 

@@ -14,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FitnessTracker\FintessTracker\FitnessTracker.csproj" />
+    <ProjectReference Include="..\..\src\FitnessTracker\FintessTracker\FitnessTracker.csproj">
+      <ReferenceSourceTarget></ReferenceSourceTarget>
+    </ProjectReference>
   </ItemGroup>
 </Project>
