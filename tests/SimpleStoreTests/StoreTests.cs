@@ -7,7 +7,7 @@ namespace SimpleStoreTests
         [Fact]
         public void Store_WhenNoProcuctInStore_Then_isEmptyAsTrue()
         {
-            // Asset
+            // Arrange
             Store myStore = new Store();
 
             // Assert
@@ -17,7 +17,7 @@ namespace SimpleStoreTests
         [Fact]
         public void Store_WhenNoProcuctInStore_Then_ZeroTotalPrice()
         {
-            // Asset
+            // Arrange
             Store myStore = new Store();
 
             // Assert
@@ -28,7 +28,7 @@ namespace SimpleStoreTests
         [Fact]
         public void getTotalPrice_ThrowsException_IfStorageUnitIsNull()
         {
-            // Asset
+            // Arrange
             Store myStore = new Store();
             bool throwException = false;
 

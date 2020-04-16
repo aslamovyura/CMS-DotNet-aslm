@@ -17,7 +17,7 @@ namespace SimpleZooTests
         [Fact]
         public void Zoo_WhenNotLoadDefaultZoo_Return_0Animals()
         {
-            // Asset
+            // Arrange
             int expectedAnimalsNumber = 0;
 
             // Act
@@ -30,7 +30,7 @@ namespace SimpleZooTests
         [Fact]
         public void Zoo_WhenLoadDefaultZoo_Return_13Animals()
         {
-            // Asset
+            // Arrange
             int expectedDefaultAnimalsNumber = 13;
 
             // Act
@@ -44,7 +44,7 @@ namespace SimpleZooTests
         [Fact]
         public void Zoo_WhenAddMamalAnimalIsOk_Increase_AnimalsNumberBy1()
         {
-            // Asset
+            // Arrange
             Antelope antelope = new Antelope(name: "ant", age: 4, health: 100, Guid.NewGuid());
             int startNumber = Zoo.GetNumberOfAnimals();
 
@@ -59,7 +59,7 @@ namespace SimpleZooTests
         [Fact]
         public void Zoo_WhenRemoveMamalAnimalIsOk_Decrease_AnimalsNumberBy1()
         {
-            // Asset
+            // Arrange
             Zoo.LoadDefaultAnimalList();
 
             var antelope = Zoo.GetAnimal(index: 1);
@@ -76,7 +76,7 @@ namespace SimpleZooTests
         [Fact]
         public void Zoo_WhenTryToRemoveAnimalFromEmptyZoo_Return_Exception()
         {
-            // Asset
+            // Arrange
             Antelope antelope = new Antelope(name: "ant", age: 4, health: 100, Guid.NewGuid());
             bool isException = false;
 
@@ -97,7 +97,7 @@ namespace SimpleZooTests
         [Fact]
         public void Zoo_WhenTryToRemoveNonexistingAnimalFromZoo_Return_Exception()
         {
-            // Asset
+            // Arrange
             Zoo.LoadDefaultAnimalList();
             Antelope antelope = new Antelope(name: "ant", age: 4, health: 100, Guid.NewGuid());
             bool isException = false;

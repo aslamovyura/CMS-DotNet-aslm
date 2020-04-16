@@ -21,7 +21,7 @@ namespace SimpleCashMachineTests
         [InlineData(1000, true)]
         public void Account_WhenTakeMoneyMoreThanExist_Return_Exception(decimal sum, bool isExceptionExpected)
         {
-            // Asset
+            // Arrange
             bool isExceptionActual = false;
 
             // Act
@@ -45,7 +45,7 @@ namespace SimpleCashMachineTests
         [InlineData(100, false)]
         public void Account_WhenTryToTakeNegariveSumOfMoney_Return_Exception(decimal sum, bool isExceptionExpected)
         {
-            // Asset
+            // Arrange
             bool isExceptionActual = false;
 
             // Act
@@ -65,7 +65,7 @@ namespace SimpleCashMachineTests
         [Fact]
         public void Account_WhenAccountBalanceIsEqualToZero_Return_IsEmptyTrue()
         {
-            // Asset
+            // Arrange
             account.TakeMoney(account.GetAccountBalance());
 
             // Act

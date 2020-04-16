@@ -17,7 +17,7 @@ namespace SimpleCashMachineTests
         [Fact]
         public void BankSerser_WhenNotLoadDefaultClientBase_Return_0Clients()
         {
-            // Asset
+            // Arrange
             int expectedClientsNumber = 0;
 
             // Act
@@ -30,7 +30,7 @@ namespace SimpleCashMachineTests
         [Fact]
         public void BankServer_WhenLoadDefaultZoo_Return_13Animals()
         {
-            // Asset
+            // Arrange
             int expectedDefaultClientsNumber = 4;
 
             // Act
@@ -44,7 +44,7 @@ namespace SimpleCashMachineTests
         [Fact]
         public void BankServer_WhenAddClientIsOk_Increase_ClientsNumberBy1()
         {
-            // Asset
+            // Arrange
             Client client = new Client(firstName: "George", lastName: "Tudor", age: 41, id: 15435);
             client.CreateNewAccount(id: 106, sum: 194895);
             int startNumber = Bank.GetClientsNumber();
@@ -60,7 +60,7 @@ namespace SimpleCashMachineTests
         [Fact]
         public void BankServer_WhenRemoveClientIsOk_Decrease_ClientsNumberBy1()
         {
-            // Asset
+            // Arrange
             Bank.LoadDefaultClientBase();
             int startNumber = Bank.GetClientsNumber();
 
@@ -78,7 +78,7 @@ namespace SimpleCashMachineTests
         [Fact]
         public void BankServefr_WhenTryToRemoveClientFromEmptyBank_Return_Exception()
         {
-            // Asset
+            // Arrange
             Client client = new Client(firstName: "George", lastName: "Tudor", age: 41, id: 15435);
             client.CreateNewAccount(id: 106, sum: 194895);
             bool isException = false;
@@ -100,7 +100,7 @@ namespace SimpleCashMachineTests
         [Fact]
         public void BankServer_WhenTryToRemoveNonexistingClientFromBank_Return_Exception()
         {
-            // Asset
+            // Arrange
             Bank.LoadDefaultClientBase();
             Client client = new Client(firstName: "George", lastName: "Tudor", age: 41, id: 15435);
             client.CreateNewAccount(id: 106, sum: 194895);
@@ -123,7 +123,7 @@ namespace SimpleCashMachineTests
         [Fact]
         public void BankServer_WhenInstallConnectionWithNonCashMachine_Return_False()
         {
-            // Asset
+            // Arrange
             object temp = new object();
             int clientID = 8888;
 
