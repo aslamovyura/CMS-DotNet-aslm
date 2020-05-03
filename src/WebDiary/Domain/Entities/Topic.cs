@@ -1,4 +1,6 @@
-﻿namespace Domain.Entities
+﻿using System.Collections.Generic;
+
+namespace Domain.Entities
 {
     /// <summary>
     /// Initialize object of the topic class.
@@ -23,6 +25,14 @@
         /// <summary>
         /// Post.
         /// </summary>
-        public Post Post { get; set; }
+        public IList<Post> Posts { get; set; }
+
+        /// <summary>
+        /// Topic constructor.
+        /// </summary>
+        public Topic()
+        {
+            Posts = new List<Post>();
+        }
     }
 }
