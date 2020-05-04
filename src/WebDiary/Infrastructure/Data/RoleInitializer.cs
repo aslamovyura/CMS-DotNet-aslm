@@ -28,6 +28,10 @@ namespace Infrastructure.Data
                 {
                     await userManager.AddToRoleAsync(admin, "admin");
                 }
+                else
+                {
+                    throw new Exception("Impossible to set admin role!");
+                }
             }
         }
     }

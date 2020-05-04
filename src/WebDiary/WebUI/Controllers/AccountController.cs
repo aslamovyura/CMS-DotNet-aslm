@@ -112,7 +112,7 @@ namespace WebUI.Controllers
                         return RedirectToAction("Index", "Home");
                 }
                 else
-                    ModelState.AddModelError("", "Incorrect email and (or) password!");
+                    ModelState.AddModelError("", "Incorrect email or password!");
             }
             return View(model);
         }

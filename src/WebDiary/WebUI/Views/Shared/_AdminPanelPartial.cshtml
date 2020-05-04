@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Domain.Entities;
+@inject SignInManager<User> SignInManager
+
+@if (SignInManager.IsSignedIn(User) && @User.IsInRole("admin"))
+{
+    <div class="row">
+        <div class="flex-column">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a>
+                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Roles" asp-action="Index">Roles</a>
+            </div>
+        </div>
+    </div>
+}

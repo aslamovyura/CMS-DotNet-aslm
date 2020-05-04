@@ -2,12 +2,16 @@
 
 namespace Application.ViewModels.Account
 {
+    /// <summary>
+    /// View model for user login.
+    /// </summary>
     public class LoginViewModel
     {
         /// <summary>
         /// User email.
         /// </summary>
         [Required]
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
 

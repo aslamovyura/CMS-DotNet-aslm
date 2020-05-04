@@ -15,9 +15,9 @@ namespace CustomIdentityApp.Controllers
         UserManager<User> _userManager;
 
         /// <summary>
-        /// Controller
+        /// Constructor of user controller.
         /// </summary>
-        /// <param name="userManager">Objec to deal with application users.</param>
+        /// <param name="userManager">Object to deal with application users.</param>
         public UsersController(UserManager<User> userManager)
         {
             _userManager = userManager;

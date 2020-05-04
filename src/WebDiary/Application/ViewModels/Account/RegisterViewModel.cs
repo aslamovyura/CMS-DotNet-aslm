@@ -26,6 +26,7 @@ namespace Application.ViewModels.Account
         /// User email.
         /// </summary>
         [Required]
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
 

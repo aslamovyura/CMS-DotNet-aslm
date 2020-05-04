@@ -35,6 +35,10 @@ namespace WebUI
                     options.User.RequireUniqueEmail = true;
                     options.User.AllowedUserNameCharacters = ".@abcdefghijklmnopqrstuvwxyz";
                     options.Password.RequiredLength = 5;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireDigit = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
