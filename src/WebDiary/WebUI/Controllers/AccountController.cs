@@ -71,7 +71,8 @@ namespace WebUI.Controllers
 
                     //return Content("To complete the registration, check your email and follow the link provided in the letter");
 
-                    // ------------- Without confirmation  ------------- //
+
+                    // ------------- Without Email confirmation  ------------- //
                     // Install cookies
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
