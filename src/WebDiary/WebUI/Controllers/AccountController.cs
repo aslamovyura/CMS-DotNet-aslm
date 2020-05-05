@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.ViewModels.Account;
+using CustomIdentityApp.Services;
 using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -57,17 +58,20 @@ namespace WebUI.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    //// генерация токена для пользователя
+
+                    //// ------------- Registration confirmation  ------------- //
+                    //// User token generation
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code },
                     //                             protocol: HttpContext.Request.Scheme);
 
                     //EmailService emailService = new EmailService();
                     //await emailService.SendEmailAsync(model.Email, "Confirm your account",
-                    //    $"Подтвердите регистрацию, перейдя по ссылке: <a href='{callbackUrl}'>link</a>");
+                    //    $"Confirm registration by clicking on the link: <a href='{callbackUrl}'>link</a>");
 
-                    //return Content("Для завершения регистрации проверьте электронную почту и перейдите по ссылке, указанной в письме");
+                    //return Content("To complete the registration, check your email and follow the link provided in the letter");
 
+                    // ------------- Without confirmation  ------------- //
                     // Install cookies
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
