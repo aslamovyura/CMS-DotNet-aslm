@@ -19,6 +19,11 @@ namespace WebUI.Controllers
         private readonly UserManager<User> _userManager;
         private readonly ApplicationDbContext _db;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="signInManager"></param>
+        /// <param name="context"></param>
         public PostsController(SignInManager<User> signInManager, ApplicationDbContext context)
         {
             _userManager = signInManager.UserManager;
@@ -38,9 +43,9 @@ namespace WebUI.Controllers
                 post.Topic = await _db.Topics.FirstOrDefaultAsync(topic => topic.Id == post.TopicId);
             }
 
-            posts.OrderBy(post => post.Date);
+            var postsSorted = posts.OrderByDescending(post => post.Date);
 
-            return View(posts);
+            return View(postsSorted);
         }
 
         /// <summary>

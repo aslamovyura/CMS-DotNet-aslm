@@ -28,6 +28,6 @@ namespace Application.ViewModels.Posts
         /// <summary>
         /// Post publication date.
         /// </summary>
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
     }
 }

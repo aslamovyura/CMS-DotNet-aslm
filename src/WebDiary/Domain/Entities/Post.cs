@@ -27,7 +27,7 @@ namespace Domain.Entities
         /// <summary>
         /// Publication date.
         /// </summary>
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         ///// <summary>
         ///// User Identifier.
