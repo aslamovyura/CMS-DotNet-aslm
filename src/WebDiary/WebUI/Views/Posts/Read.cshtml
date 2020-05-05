@@ -1,0 +1,13 @@
+﻿@model Domain.Entities.Post
+@{
+    ViewBag.Title = "Read Post";
+}
+
+<form class="text-center">
+    <article>
+        <h2>@Model.Title</h2>
+        <p>@Model.User.FirstName @Model.User.LastName</p>
+        <p>@Model.Text</p>
+        <p>@Model.Date</p>
+    </article>
+</form>

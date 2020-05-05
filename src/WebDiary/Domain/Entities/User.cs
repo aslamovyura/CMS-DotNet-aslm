@@ -9,6 +9,12 @@ namespace Domain.Entities
     /// </summary>
     public class User : IdentityUser
     {
+        /////// <summary>
+        /////// User Identifier.
+        /////// </summary>
+        ////public override string Id { get => base.Id; set => base.Id = value; }
+        //public override string Id { get; set; }
+
         /// <summary>
         /// User first name.
         /// </summary>
@@ -27,12 +33,12 @@ namespace Domain.Entities
         /// <summary>
         /// The list of posts.
         /// </summary>
-        public IList<Post> Posts { get; set; }
+        public virtual IList<Post> Posts { get; set; }
 
         /// <summary>
         /// The list of comments.
         /// </summary>
-        public IList<Comment> Comments { get; set; }
+        public virtual IList<Comment> Comments { get; set; }
 
         /// <summary>
         /// Constructor.

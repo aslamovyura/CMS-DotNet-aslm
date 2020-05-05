@@ -18,11 +18,6 @@ namespace Domain.Entities
         public string Text { get; set; }
 
         /// <summary>
-        /// Post identifier.
-        /// </summary>
-        public int PostId { get; set; }
-
-        /// <summary>
         /// Post.
         /// </summary>
         public IList<Post> Posts { get; set; }

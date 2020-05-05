@@ -22,7 +22,7 @@ namespace Infrastructure.Data
             }
             if (await userManager.FindByNameAsync(adminEmail) == null)
             {
-                User admin = new User { Email = adminEmail, UserName = adminEmail };
+                User admin = new User { Email = adminEmail, UserName = adminEmail , FirstName="admin", LastName="admin"};
                 IdentityResult result = await userManager.CreateAsync(admin, password);
                 if (result.Succeeded)
                 {

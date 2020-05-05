@@ -15,37 +15,41 @@
                         <img src="~/OpenDiary.jpg" width="50" height="50" class="d-inline-block align-top" alt="">
                         OPEN DIARY
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+
+                    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
+                    </button>-->
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                         <partial name="_LoginPartial" />
                         <ul class="navbar-nav flex-grow-1">
-                           <!-- <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>-->
+                            <li class="nav-item">
+                                <!--<a class="nav-link btn btn-lg btn-primary text-light" asp-area="" asp-controller="Posts" asp-action="Create">Write New</a>-->
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-        <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
-        <aside style="float:left; width:200px; height:auto">
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+
+        <div class="row">
+            <div style="width:250px">
                 <partial name="_AdminPanelPartial" />
             </div>
-        </aside>
+            <div class="col">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+            <div style="width:250px"></div>
+        </div>
 
         <footer class="border-top footer text-muted">
             <div class="container">
                 &copy; 2020 - Open Diary - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             </div>
         </footer>
+
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>

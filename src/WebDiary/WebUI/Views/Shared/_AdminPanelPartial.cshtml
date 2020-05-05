@@ -4,12 +4,14 @@
 
 @if (SignInManager.IsSignedIn(User) && @User.IsInRole("admin"))
 {
-    <div class="row">
+    <div class="form-group-col">
         <div class="flex-column">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a>
-                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Roles" asp-action="Index">Roles</a>
+                <a class="row nav-link btn btn-lg btn-primary" asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a><br />
+                <a class="row nav-link btn btn-lg btn-primary" asp-area="Admin" asp-controller="Roles" asp-action="Index">Roles</a><br />
+                <a class="row nav-link btn btn-lg btn-primary" asp-area="Admin" asp-controller="Posts" asp-action="AllPosts">Posts</a><br />
             </div>
         </div>
     </div>
 }
+

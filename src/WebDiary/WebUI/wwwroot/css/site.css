@@ -29,7 +29,37 @@ a {
 
 .field-validation-error {
     color: #b94a48;
-    font-size: smaller;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+select.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Nav bar properties
+-------------------------------------------------- */
+.navbar-nav > li {
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 /* Sticky footer styles
@@ -59,6 +89,12 @@ button.accept-policy {
   line-height: inherit;
 }
 
+
+.row {
+    margin-left: 15px;
+    margin-right: 30px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -70,6 +106,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;

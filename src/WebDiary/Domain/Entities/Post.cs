@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
@@ -28,15 +29,16 @@ namespace Domain.Entities
         /// </summary>
         public DateTime? Date { get; set; }
 
-        /// <summary>
-        /// Author identifier.
-        /// </summary>
-        public int UserId { get; set; }
+        ///// <summary>
+        ///// User Identifier.
+        ///// </summary>
+        [ForeignKey("User")]
+        public virtual string UserId { get; set; }
 
         /// <summary>
         /// Author of the post.
         /// </summary>
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         /// <summary>
         /// Identifier of the post topic.

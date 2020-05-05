@@ -15,7 +15,25 @@ namespace Infrastructure.Persistence
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<Post>()
+            //    .HasOne(c => c.User)
+            //    .WithMany(t => t.Posts)
+            //    .IsRequired()
+            //    .HasForeignKey(p => p.UserId);
+
+            //modelBuilder.Entity<Comment>()
+            //    .HasOne(c => c.User)
+            //    .WithMany(t => t.Comments)
+            //    .IsRequired()
+            //    .HasForeignKey(p => p.UserId);
         }
     }
 }

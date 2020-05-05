@@ -14,5 +14,6 @@
     <Folder Include="ViewModels\Users\" />
     <Folder Include="ViewModels\Roles\" />
     <Folder Include="Common\Interfaces\" />
+    <Folder Include="ViewModels\Posts\" />
   </ItemGroup>
 </Project>

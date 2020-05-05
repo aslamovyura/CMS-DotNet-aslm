@@ -29,6 +29,10 @@ namespace WebUI
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                //, providerOptions => providerOptions.CommandTimeout(60))
+                //    .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+                //ServiceLifetime.Transient);
+            //ServiceLifetime.Scoped);
 
             services.AddIdentity<User, IdentityRole>(options =>
                 {

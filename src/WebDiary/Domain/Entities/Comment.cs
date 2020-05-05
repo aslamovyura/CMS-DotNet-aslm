@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Domain.Entities
 {
     /// <summary>
@@ -34,11 +36,13 @@ namespace Domain.Entities
         /// <summary>
         /// Author identifier.
         /// </summary>
-        public int UserId { get; set; }
+        [ForeignKey("User")]
+        public virtual string UserId { get; set; }
 
         /// <summary>
         /// Author.
         /// </summary>
-        public User User { get; set; }
+        //[ForeignKey("UserId")]
+        public virtual User User { get; set; }
     }
 }
