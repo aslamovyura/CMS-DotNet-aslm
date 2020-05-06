@@ -32,7 +32,7 @@ namespace Domain.Entities
         ///// <summary>
         ///// User Identifier.
         ///// </summary>
-        [ForeignKey("User")]
+        //[ForeignKey("User")]
         public virtual string UserId { get; set; }
 
         /// <summary>

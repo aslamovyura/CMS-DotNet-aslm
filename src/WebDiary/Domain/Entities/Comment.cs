@@ -36,7 +36,7 @@ namespace Domain.Entities
         /// <summary>
         /// Author identifier.
         /// </summary>
-        [ForeignKey("User")]
+        //[ForeignKey("User")]
         public virtual string UserId { get; set; }
 
         /// <summary>

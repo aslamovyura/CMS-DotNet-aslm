@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Application.ViewModels.Account;
 using CustomIdentityApp.Services;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,7 +35,12 @@ namespace WebUI.Controllers
         /// </summary>
         /// <returns>View for user registration.</returns>
         [HttpGet]
-        public IActionResult Register() => View();
+        public IActionResult Register()
+        {
+            ViewData["OnConfirming"] = "false";
+            return View();
+        }
+        
 
         /// <summary>
         /// Process user input on the registration view.
@@ -41,6 +48,8 @@ namespace WebUI.Controllers
         /// <param name="model">User registration view model.</param>
         /// <returns>Redirection to main page.</returns>
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -58,24 +67,19 @@ namespace WebUI.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    // Generate user token
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account",
+                                                 new { userId = user.Id, code = code },
+                                                 protocol: HttpContext.Request.Scheme);
 
-                    //// ------------- Registration confirmation  ------------- //
-                    //// User token generation
-                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code },
-                    //                             protocol: HttpContext.Request.Scheme);
+                    EmailService emailService = new EmailService();
+                    await emailService.SendEmailAsync(model.Email, "Confirm your account in OpenDiary",
+                        $"Confirm registration by clicking this link: <a href='{callbackUrl}'>link</a>");
 
-                    //EmailService emailService = new EmailService();
-                    //await emailService.SendEmailAsync(model.Email, "Confirm your account",
-                    //    $"Confirm registration by clicking on the link: <a href='{callbackUrl}'>link</a>");
-
-                    //return Content("To complete the registration, check your email and follow the link provided in the letter");
-
-
-                    // ------------- Without Email confirmation  ------------- //
-                    // Install cookies
-                    await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    // Show confirming page
+                    ViewData["OnConfirming"] = "true";
+                    return View(model);
                 }
                 else
                 {
@@ -85,7 +89,40 @@ namespace WebUI.Controllers
                     }
                 }
             }
+            ViewData["OnConfirming"] = "false";
             return View(model);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        {
+            if (userId == null || code == null)
+            {
+                return View("Error");
+            }
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return View("Error");
+            }
+
+            // Mark email as confirmed 
+            var result = await _userManager.ConfirmEmailAsync(user, code);
+            if (result.Succeeded)
+            {
+                //await _signInManager.SignInAsync(user, false);
+                //return RedirectToAction("Index", "Home");
+                return View();
+            }
+            else
+                return View("Error");
         }
 
         /// <summary>
