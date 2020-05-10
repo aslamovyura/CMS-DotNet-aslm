@@ -5,6 +5,8 @@ using MailKit.Net.Smtp;
 using MimeKit;
 using Core.Interfaces;
 using Core.Models;
+using Core.Constants;
+using Core.Extensions;
 
 namespace Core.Services
 {
@@ -15,12 +17,77 @@ namespace Core.Services
     {
         private readonly EmailSettings _emailSettings;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        /// <exception cref="Exception">Exception, when email settings is not found.</exception>
+        /// <exception cref="ArgumentException">Exception, when email settings is not valid.</exception>
         public EmailService()
         {
-            _emailSettings = EmailConfiguration();
+            try
+            {
+                _emailSettings = EmailConfiguration();
+            }
+            catch
+            {
+                throw new Exception(ErrorConstants.EmailSettingsIssues);
+            }
+
+            if (!_emailSettings.IsValid())
+            {
+                throw new ArgumentException();
+            }
+        }
+
+        /// <summary>
+        /// Constructor with parameters.
+        /// </summary>
+        /// <param name="emailSettings">Setting for email service (Server, Port, EmailAddress, Password)</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException">Exception when emailSettings is not valid.</exception>
+        public EmailService(EmailSettings emailSettings)
+        {
+            _emailSettings = emailSettings ?? throw new ArgumentNullException();
+
+            if (!_emailSettings.IsValid())
+            {
+                throw new ArgumentException();
+            }
+        }
+
+        /// <summary>
+        /// Constructor with parameters.
+        /// </summary>
+        /// <param name="server">SMTP server.</param>
+        /// <param name="port">SMTP server port.</param>
+        /// <param name="email">Email adress to send from.</param>
+        /// <param name="password">Password of the email address.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentException">Exception, when one of the inner arguments is not valid.</exception>
+        public EmailService(string server, int port, string email, string password)
+        {
+            server = server ?? throw new ArgumentNullException(nameof(server));
+            port = port > 0 ? port : throw new ArgumentOutOfRangeException();
+            email = email ?? throw new ArgumentNullException(nameof(email));
+            password = password ?? throw new ArgumentNullException(nameof(password));
+
+            _emailSettings = new EmailSettings()
+            {
+                Server = server,
+                Port = port,
+                EmailAddress = email,
+                Password = password
+            };
+
+            if (!_emailSettings.IsValid())
+            {
+                throw new ArgumentException();
+            }
         }
 
         ///<inheritdoc/>
+        ///<exception cref="ArgumentNullException"></exception>
         public async Task SendEmailAsync(string email, string subject, string message)
         {
             email = email ?? throw new ArgumentNullException(nameof(email));

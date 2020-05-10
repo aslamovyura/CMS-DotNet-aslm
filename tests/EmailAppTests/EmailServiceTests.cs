@@ -9,10 +9,7 @@ namespace EmailAppTests
     {
         IEmailService _emailService;
 
-        public EmailServiceTests()
-        {
-            _emailService = new EmailService();
-        }
+        public EmailServiceTests() { }
 
         [Fact]
         public void SendEmailAsync_WhenEmailAddressIsNull_Return_ArgumentNullException()
@@ -22,10 +19,117 @@ namespace EmailAppTests
             string subject = nameof(subject);
             string message = nameof(message);
 
+            _emailService = new EmailService();
+
             // Act
 
             // Assert
             Assert.Throws<ArgumentNullException>(() => _emailService.SendEmailAsync(email, subject, message).GetAwaiter().GetResult());
+        }
+
+        [Fact]
+        public void EmailService_WhenInitWithNullSpmtpServer_Return_Exception()
+        {
+            // Arrange
+            string smtpServer = default;
+            int port = 465;
+            string email = "some@mail.com";
+            string password = "somePassword";
+
+            // Act
+
+            // Assert
+            Assert.Throws<ArgumentNullException>(() => new EmailService(smtpServer, port, email, password));
+        }
+
+        [Fact]
+        public void EmailService_WhenInitWithNullEmail_Return_Exception()
+        {
+            // Arrange
+            string smtpServer = "smtp.gmail.com";
+            int port = 465;
+            string email = default;
+            string password = "somePassword";
+
+            // Act
+
+            // Assert
+            Assert.Throws<ArgumentNullException>(() => new EmailService(smtpServer, port, email, password));
+        }
+
+        [Fact]
+        public void EmailService_WhenInitWithNullPassword_Return_Exception()
+        {
+            // Arrange
+            string smtpServer = "smtp.gmail.com";
+            int port = 465;
+            string email = "some@mail.com";
+            string password = default;
+
+            // Act
+
+            // Assert
+            Assert.Throws<ArgumentNullException>(() => new EmailService(smtpServer, port, email, password));
+        }
+
+        [Fact]
+        public void EmailService_WhenInitWithNegativePort_Return_Exception()
+        {
+            // Arrange
+            string smtpServer = "smtp.gmail.com";
+            int port = -465;
+            string email = "some@mail.com";
+            string password = "somePassword";
+
+            // Act
+
+            // Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => new EmailService(smtpServer, port, email, password));
+        }
+
+        [Fact]
+        public void EmailService_WhenInitWithZeroPort_Return_Exception()
+        {
+            // Arrange
+            string smtpServer = "smtp.gmail.com";
+            int port = 0;
+            string email = "some@mail.com";
+            string password = "somePassword";
+
+            // Act
+
+            // Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => new EmailService(smtpServer, port, email, password));
+        }
+
+        [Fact]
+        public void EmailService_WhenInitWithGreater500_Return_Exception()
+        {
+            // Arrange
+            string smtpServer = "smtp.gmail.com";
+            int port = 1000;
+            string email = "some@mail.com";
+            string password = "somePassword";
+
+            // Act
+
+            // Assert
+            Assert.Throws<ArgumentException>(() => new EmailService(smtpServer, port, email, password));
+        }
+
+        [Fact]
+        public void EmailService_WhenInvalidEmailFormat_Return_Exception()
+        {
+            // Arrange
+            string smtpServer = "gm";
+            int port = 465;
+            string email = "invalidEmail";
+            string password = "somePassword";
+
+            //// Act
+
+            // Assert
+            Assert.Throws<ArgumentException>(() => new EmailService(smtpServer, port, email, password));
         }
     }
 }
