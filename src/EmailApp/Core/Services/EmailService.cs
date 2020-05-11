@@ -111,11 +111,13 @@ namespace Core.Services
                     await client.SendAsync(emailMessage);
 
                     await client.DisconnectAsync(true);
+                    Console.WriteLine(ErrorConstants.MessageSentSuccess);
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine(ErrorConstants.MessageSentIssues);
             }
         }
 

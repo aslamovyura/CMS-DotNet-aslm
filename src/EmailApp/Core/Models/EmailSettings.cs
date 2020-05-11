@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Core.Constants;
 
 namespace Core.Models
@@ -10,22 +9,21 @@ namespace Core.Models
         /// SMTP Server.
         /// </summary>
         [Required]
-        //[RegularExpression(@"^smtp\w*")]
+        //[RegularExpression(@"^smtp\w*")]  % TODO: Validation is not working! Why?
         public string Server { get; set; }
 
         /// <summary>
         /// SMTP Server port.
         /// </summary>
         [Required]
-        [Range(1,500, ErrorMessage = ErrorConstants.ServerPortIssues)]
+        [Range(1,1000, ErrorMessage = ErrorConstants.ServerPortIssues)]
         public int Port { get; set; }
 
         /// <summary>
         /// Sender email adress.
         /// </summary>
         [Required]
-        //[DataType(DataType.EmailAddress, ErrorMessage = ErrorConstants.EmailFormatIssues)]
-        [DataType(DataType.EmailAddress)]
+        [DataType(DataType.EmailAddress, ErrorMessage = ErrorConstants.EmailFormatIssues)]
         [EmailAddress]
         public string EmailAddress { get; set; }
 

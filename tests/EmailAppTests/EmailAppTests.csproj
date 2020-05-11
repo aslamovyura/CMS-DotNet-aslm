@@ -19,4 +19,10 @@
     <ProjectReference Include="..\..\src\EmailApp\App\App.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="emailsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

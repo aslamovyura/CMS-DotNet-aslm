@@ -14,47 +14,6 @@ namespace EmailAppTests
         public EmailServiceTests() { }
 
         [Fact]
-        public void SendEmailAsync_WhenEmailAddressIsNull_Return_ArgumentNullException()
-        {
-            // Arrange
-            string email = default;
-            string subject = nameof(subject);
-            string message = nameof(message);
-
-            _emailService = new EmailService();
-
-            // Act
-
-            // Assert
-            Assert.Throws<ArgumentNullException>(() => _emailService.SendEmailAsync(email, subject, message).GetAwaiter().GetResult());
-        }
-
-        [Fact]
-        public void SendEmailAsync_WhenEmailAddressIsValid_Return_Success()
-        {
-            // Arrange
-            string email = "some@gmail.com";
-            string subject = nameof(subject);
-            string message = nameof(message);
-
-            _emailService = new EmailService();
-            var success = true;
-
-            // Act
-            try
-            {
-                _emailService.SendEmailAsync(email, subject, message).GetAwaiter().GetResult();
-            }
-            catch
-            {
-                success = false;
-            }
-
-            // Assert
-            Assert.True(success);
-        }
-
-        [Fact]
         public void EmailService_WhenInitWithNullSpmtpServer_Return_Exception()
         {
             // Arrange
@@ -130,7 +89,7 @@ namespace EmailAppTests
         }
 
         [Fact]
-        public void EmailService_WhenInitWithGreater500_Return_Exception()
+        public void EmailService_WhenInitWithGreater1000_Return_Exception()
         {
             // Arrange
             string smtpServer = "smtp.gmail.com";
@@ -182,5 +141,51 @@ namespace EmailAppTests
             // Assert
             Assert.Throws<ArgumentException>(() => new EmailService(setting));
         }
+
+
+        // *********************** Functional Tests ************************* //
+        // Required: emailsettings.json file.
+
+        //[Fact]
+        //public void SendEmailAsync_WhenEmailAddressIsNull_Return_ArgumentNullException()
+        //{
+        //    // Arrange
+        //    string email = default;
+        //    string subject = nameof(subject);
+        //    string message = nameof(message);
+
+        //    _emailService = new EmailService();
+
+        //    // Act
+
+        //    // Assert
+        //    Assert.Throws<ArgumentNullException>(() => _emailService.SendEmailAsync(email, subject, message).GetAwaiter().GetResult());
+        //}
+
+        //[Fact]
+        //public void SendEmailAsync_WhenEmailAddressIsValid_Return_Success()
+        //{
+        //    // Arrange
+        //    string email = "some@gmail.com";
+        //    string subject = nameof(subject);
+        //    string message = nameof(message);
+
+        //    _emailService = new EmailService();
+        //    var success = true;
+
+        //    // Act
+        //    try
+        //    {
+        //        _emailService.SendEmailAsync(email, subject, message).GetAwaiter().GetResult();
+        //    }
+        //    catch
+        //    {
+        //        success = false;
+        //    }
+
+        //    // Assert
+        //    Assert.True(success);
+        //}
+
     }
 }

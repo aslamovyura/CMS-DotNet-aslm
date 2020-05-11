@@ -8,7 +8,7 @@ namespace Core.Extensions
     /// <summary>
     /// Define extensions to EmailSettings class.
     /// </summary>
-    public static class EmailSettingExtension
+    public static class EmailSettingsExtension
     {
         /// <summary>
         /// Validate model of email service settings.

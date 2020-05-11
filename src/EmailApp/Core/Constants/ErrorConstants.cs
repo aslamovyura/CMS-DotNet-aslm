@@ -29,5 +29,25 @@
         /// Email settings are invalid.
         /// </summary>
         public const string EmailSettingsInvalid = "Settings for email service are not valid!";
+
+        /// <summary>
+        /// Email settings are not found.
+        /// </summary>
+        public const string EmailSettingsLoaded = "Settings for email service are successfully loaded!";
+
+        /// <summary>
+        /// Message was successfully sent.
+        /// </summary>
+        public const string MessageSentIssues = "Error! Message was not sent!";
+
+        /// <summary>
+        /// Message was successfully sent.
+        /// </summary>
+        public const string MessageSentSuccess = "Message was successfully sent!";
+
+        /// <summary>
+        /// Unknown command.
+        /// </summary>
+        public const string UnknownCommand = "Unknown command! Try again, please.";
     }
 }
