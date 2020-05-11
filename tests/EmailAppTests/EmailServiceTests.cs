@@ -1,6 +1,8 @@
 using System;
 using Core.Interfaces;
+using Core.Models;
 using Core.Services;
+using Moq;
 using Xunit;
 
 namespace EmailAppTests
@@ -25,6 +27,31 @@ namespace EmailAppTests
 
             // Assert
             Assert.Throws<ArgumentNullException>(() => _emailService.SendEmailAsync(email, subject, message).GetAwaiter().GetResult());
+        }
+
+        [Fact]
+        public void SendEmailAsync_WhenEmailAddressIsValid_Return_Success()
+        {
+            // Arrange
+            string email = "some@gmail.com";
+            string subject = nameof(subject);
+            string message = nameof(message);
+
+            _emailService = new EmailService();
+            var success = true;
+
+            // Act
+            try
+            {
+                _emailService.SendEmailAsync(email, subject, message).GetAwaiter().GetResult();
+            }
+            catch
+            {
+                success = false;
+            }
+
+            // Assert
+            Assert.True(success);
         }
 
         [Fact]
@@ -107,7 +134,7 @@ namespace EmailAppTests
         {
             // Arrange
             string smtpServer = "smtp.gmail.com";
-            int port = 1000;
+            int port = 2000;
             string email = "some@mail.com";
             string password = "somePassword";
 
@@ -118,18 +145,42 @@ namespace EmailAppTests
         }
 
         [Fact]
-        public void EmailService_WhenInvalidEmailFormat_Return_Exception()
+        public void EmailService_WhenInitWithInvalidEmailFormat_Return_Exception()
         {
             // Arrange
-            string smtpServer = "gm";
+            string smtpServer = "smtp.gmail.com";
             int port = 465;
-            string email = "invalidEmail";
+            string email = "someAddress";
             string password = "somePassword";
 
-            //// Act
+            // Act
 
             // Assert
             Assert.Throws<ArgumentException>(() => new EmailService(smtpServer, port, email, password));
+        }
+
+        [Fact]
+        public void EmailService_WhenInitWithNullEmailSettings_Return_Exception()
+        {
+            // Arrange
+            EmailSettings setting = default;
+
+            // Act
+
+            // Assert
+            Assert.Throws<ArgumentNullException>(() => new EmailService(setting));
+        }
+
+        [Fact]
+        public void EmailService_WhenInitWithInvalidEmailSettings_Return_Exception()
+        {
+            // Arrange
+            EmailSettings setting = new EmailSettings { EmailAddress = "123" };
+
+            // Act
+
+            // Assert
+            Assert.Throws<ArgumentException>(() => new EmailService(setting));
         }
     }
 }

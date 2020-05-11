@@ -1,5 +1,8 @@
 ﻿namespace Core.Constants
 {
+    /// <summary>
+    /// Define class containing constants for error messages.
+    /// </summary>
     public class ErrorConstants
     {
         /// <summary>
@@ -18,9 +21,13 @@
         public const string ServerPortIssues = "Server port value is out of range!";
 
         /// <summary>
-        /// Email settings are not found or not valid.
+        /// Email settings are not found.
         /// </summary>
-        public const string EmailSettingsIssues = "Settings for email service are not found or not valid!";
+        public const string EmailSettingsNotFound = "Settings for email service are not found!";
 
+        /// <summary>
+        /// Email settings are invalid.
+        /// </summary>
+        public const string EmailSettingsInvalid = "Settings for email service are not valid!";
     }
 }

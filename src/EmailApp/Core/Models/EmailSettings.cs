@@ -34,6 +34,5 @@ namespace Core.Models
         /// </summary>
         [Required]
         public string Password { get; set; }
-
     }
 }

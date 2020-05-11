@@ -9,12 +9,12 @@ namespace App
         {
             Console.WriteLine("Hello World!");
 
-            string server = "smtp.gmail.com";
+            //string server = "smtp.gmail.com";
 
-            //string pattern = @"^smtp\w*";
-            string pattern = @"\w*smtp\w*";
+            ////string pattern = @"^smtp\w*";
+            //string pattern = @"\w*smtp\w*";
             
-            Console.WriteLine(Regex.IsMatch(server, pattern));
+            //Console.WriteLine(Regex.IsMatch(server, pattern));
         }
     }
 }

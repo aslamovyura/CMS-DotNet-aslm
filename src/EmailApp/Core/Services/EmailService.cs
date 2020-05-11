@@ -30,12 +30,12 @@ namespace Core.Services
             }
             catch
             {
-                throw new Exception(ErrorConstants.EmailSettingsIssues);
+                throw new Exception(ErrorConstants.EmailSettingsNotFound);
             }
 
             if (!_emailSettings.IsValid())
             {
-                throw new ArgumentException();
+                throw new ArgumentException(ErrorConstants.EmailSettingsInvalid);
             }
         }
 
@@ -47,11 +47,11 @@ namespace Core.Services
         /// <exception cref="ArgumentException">Exception when emailSettings is not valid.</exception>
         public EmailService(EmailSettings emailSettings)
         {
-            _emailSettings = emailSettings ?? throw new ArgumentNullException();
+            _emailSettings = emailSettings ?? throw new ArgumentNullException(nameof(emailSettings));
 
             if (!_emailSettings.IsValid())
             {
-                throw new ArgumentException();
+                throw new ArgumentException(ErrorConstants.EmailSettingsInvalid);
             }
         }
 
@@ -82,7 +82,7 @@ namespace Core.Services
 
             if (!_emailSettings.IsValid())
             {
-                throw new ArgumentException();
+                throw new ArgumentException(ErrorConstants.EmailSettingsInvalid);
             }
         }
 
